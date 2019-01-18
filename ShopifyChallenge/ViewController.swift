@@ -48,6 +48,7 @@ class ViewController: UITableViewController {
                  
                  }
                  */
+                //must be done on main thread
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
