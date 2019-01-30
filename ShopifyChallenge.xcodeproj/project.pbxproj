@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B8F43C621F179310027FBC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F43C521F179310027FBC4 /* AppDelegate.swift */; };
-		0B8F43C821F179310027FBC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F43C721F179310027FBC4 /* ViewController.swift */; };
+		0B8F43C821F179310027FBC4 /* ViewControllerMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F43C721F179310027FBC4 /* ViewControllerMain.swift */; };
 		0B8F43CB21F179310027FBC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B8F43C921F179310027FBC4 /* Main.storyboard */; };
 		0B8F43CE21F179310027FBC4 /* ShopifyChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F43CC21F179310027FBC4 /* ShopifyChallenge.xcdatamodeld */; };
 		0B8F43D021F179330027FBC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B8F43CF21F179330027FBC4 /* Assets.xcassets */; };
@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		0B8F43C221F179310027FBC4 /* ShopifyChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopifyChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8F43C521F179310027FBC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0B8F43C721F179310027FBC4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0B8F43C721F179310027FBC4 /* ViewControllerMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMain.swift; sourceTree = "<group>"; };
 		0B8F43CA21F179310027FBC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0B8F43CD21F179310027FBC4 /* ShopifyChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShopifyChallenge.xcdatamodel; sourceTree = "<group>"; };
 		0B8F43CF21F179330027FBC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				0B8F43C521F179310027FBC4 /* AppDelegate.swift */,
-				0B8F43C721F179310027FBC4 /* ViewController.swift */,
+				0B8F43C721F179310027FBC4 /* ViewControllerMain.swift */,
 				0B8F43C921F179310027FBC4 /* Main.storyboard */,
 				0B8F43CF21F179330027FBC4 /* Assets.xcassets */,
 				0B8F43D121F179330027FBC4 /* LaunchScreen.storyboard */,
@@ -138,7 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B8F43C821F179310027FBC4 /* ViewController.swift in Sources */,
+				0B8F43C821F179310027FBC4 /* ViewControllerMain.swift in Sources */,
 				0B8F43CE21F179310027FBC4 /* ShopifyChallenge.xcdatamodeld in Sources */,
 				0B8F43C621F179310027FBC4 /* AppDelegate.swift in Sources */,
 			);

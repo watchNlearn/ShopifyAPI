@@ -15,9 +15,9 @@ struct ServerResponse: Decodable {
 struct Custom_Collections: Decodable {
     var title: String
 }
+var indexCount = 0
 
-
-class ViewController: UITableViewController {
+class ViewControllerMain: UITableViewController {
     
  
     
@@ -71,7 +71,7 @@ class ViewController: UITableViewController {
     }
 
 }
-extension ViewController {
+extension ViewControllerMain {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as UITableViewCell
         cell.textLabel?.text = self.tableArray[indexPath.row]
@@ -81,6 +81,10 @@ extension ViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tableArray.count
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        indexCount = indexPath.row
+        
     }
     
 }
