@@ -13,6 +13,7 @@
 		0B8F43CE21F179310027FBC4 /* ShopifyChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F43CC21F179310027FBC4 /* ShopifyChallenge.xcdatamodeld */; };
 		0B8F43D021F179330027FBC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B8F43CF21F179330027FBC4 /* Assets.xcassets */; };
 		0B8F43D321F179330027FBC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B8F43D121F179330027FBC4 /* LaunchScreen.storyboard */; };
+		0BC35E8922012EE9005C98E6 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC35E8822012EE9005C98E6 /* CollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		0B8F43CF21F179330027FBC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B8F43D221F179330027FBC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B8F43D421F179330027FBC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0BC35E8822012EE9005C98E6 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				0B8F43D121F179330027FBC4 /* LaunchScreen.storyboard */,
 				0B8F43D421F179330027FBC4 /* Info.plist */,
 				0B8F43CC21F179310027FBC4 /* ShopifyChallenge.xcdatamodeld */,
+				0BC35E8822012EE9005C98E6 /* CollectionViewController.swift */,
 			);
 			path = ShopifyChallenge;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BC35E8922012EE9005C98E6 /* CollectionViewController.swift in Sources */,
 				0B8F43C821F179310027FBC4 /* ViewControllerMain.swift in Sources */,
 				0B8F43CE21F179310027FBC4 /* ShopifyChallenge.xcdatamodeld in Sources */,
 				0B8F43C621F179310027FBC4 /* AppDelegate.swift in Sources */,
