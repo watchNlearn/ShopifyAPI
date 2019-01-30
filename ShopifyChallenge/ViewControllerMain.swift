@@ -84,6 +84,7 @@ extension ViewControllerMain {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         indexCount = indexPath.row
+        performSegue(withIdentifier: "tableToCollectionSegue", sender: self)
         
     }
     
