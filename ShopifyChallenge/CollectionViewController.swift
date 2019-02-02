@@ -9,7 +9,9 @@
 import UIKit
 
 class CollectionViewController: UICollectionViewController {
-
+    
+    var cellArrayCount = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
