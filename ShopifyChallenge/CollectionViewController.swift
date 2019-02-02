@@ -10,11 +10,11 @@ import UIKit
 
 class CollectionViewController: UICollectionViewController {
     
-    var cellArrayCount = [String]()
+    var cellArrayNames = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -22,6 +22,9 @@ class CollectionViewController: UICollectionViewController {
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as UICollectionViewCell
+        var cellProdductNames = cell.viewWithTag(1) as! UILabel
+        
+        
         return cell
         
     }
