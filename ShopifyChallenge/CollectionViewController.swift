@@ -11,9 +11,12 @@ import UIKit
 class CollectionViewController: UICollectionViewController {
     
     var cellArrayNames = [String]()
+    var collectionTitle: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("~~~~ Collection View ~~~~")
+        print(collectionTitle)
         // Do JSON Call to get Cell Array List
         cellArrayNames = ["Hammer", "Brick", "Shovel"]
         // Do any additional setup after loading the view.

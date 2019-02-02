@@ -88,8 +88,14 @@ extension ViewControllerMain {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         indexCount = indexPath.row
+        //var collectionTitle = self.tableArray[indexCount]
         performSegue(withIdentifier: "tableToCollectionSegue", sender: self)
         
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? CollectionViewController {
+            vc.collectionTitle = self.tableArray[indexCount]
+        }
     }
     
 }
