@@ -15,6 +15,14 @@ class CollectionViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
     }
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as UICollectionViewCell
+        return cell
+        
+    }
     
     
     /*
