@@ -14,6 +14,7 @@ struct ServerResponse: Decodable {
 
 struct Custom_Collections: Decodable {
     var title: String
+    var id: Int
 }
 var indexCount = 0
 
@@ -22,6 +23,7 @@ class ViewControllerMain: UITableViewController {
  
     
     var tableArray = [String]()
+    var idArray = [Int]()
     
     
     override func viewDidLoad() {
@@ -38,6 +40,7 @@ class ViewControllerMain: UITableViewController {
                 let shopifydata = try JSONDecoder().decode(ServerResponse.self, from: data)
                 for collection in shopifydata.custom_collections {
                     print(collection.title)
+                    print(collection.id)
                     self.tableArray.append(collection.title)
                     
                 }
