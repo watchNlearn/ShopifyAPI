@@ -95,6 +95,8 @@ extension ViewControllerMain {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? CollectionViewController {
             vc.collectionTitle = self.tableArray[indexCount]
+            vc.collectionID = self.idArray[indexCount]
+            
         }
     }
     
