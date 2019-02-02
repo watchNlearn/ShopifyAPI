@@ -42,6 +42,7 @@ class ViewControllerMain: UITableViewController {
                     print(collection.title)
                     print(collection.id)
                     self.tableArray.append(collection.title)
+                    self.idArray.append(collection.id)
                     
                 }
                 /*
