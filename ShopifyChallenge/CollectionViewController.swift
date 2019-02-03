@@ -39,6 +39,7 @@ class CollectionViewController: UICollectionViewController {
     var productTitles = [String]()
     var productIdIndexStore = [Int]()
     var productTitleStore = [String]()
+    var variantInventory = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,9 +81,11 @@ class CollectionViewController: UICollectionViewController {
             }
             do {
                 let shopifydata2 = try JSONDecoder().decode(ProductResponse.self, from: data2)
+            
                 print("~~~~~~")
                 print(shopifydata2)
                 for product in shopifydata2.products {
+                    var totalInv = 0
                     print("LOLOLOLOL")
                     self.actualProductIds.append(product.id)
                     print(product.id)
@@ -90,11 +93,14 @@ class CollectionViewController: UICollectionViewController {
                     print(product.title)
                     for variant in product.variants {
                         print("*****")
+                        totalInv = totalInv + variant.inventory_quantity
                         print(variant.inventory_quantity)
+                        
                     }
+                    self.variantInventory.append(totalInv)
                     
                 }
-            
+            print(self.variantInventory)
 
                 
             }
@@ -148,6 +154,8 @@ class CollectionViewController: UICollectionViewController {
         cellProdductNames.text = productTitleStore[indexPath.row]
         var cellCollectionName = cell.viewWithTag(2) as! UILabel
         cellCollectionName.text = collectionTitle
+        var cellCollectionInventory = cell.viewWithTag(3) as! UILabel
+        cellCollectionInventory.text = "Total Inventory: " + String(variantInventory[indexPath.row])
         
         
         return cell
