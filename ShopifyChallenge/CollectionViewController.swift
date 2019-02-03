@@ -81,22 +81,21 @@ class CollectionViewController: UICollectionViewController {
             }
             do {
                 let shopifydata2 = try JSONDecoder().decode(ProductResponse.self, from: data2)
-            
-                print("~~~~~~")
-                print(shopifydata2)
+                //for each product in returned data
                 for product in shopifydata2.products {
+                    //Init Inventory to 0
                     var totalInv = 0
-                    print("LOLOLOLOL")
+                    //Append first product Id + Title to seperate Array
                     self.actualProductIds.append(product.id)
-                    print(product.id)
                     self.productTitles.append(product.title)
-                    print(product.title)
+                    //for each variant in each product
                     for variant in product.variants {
-                        print("*****")
+                        //Increment Total Inv by the inv_quant returned
                         totalInv = totalInv + variant.inventory_quantity
-                        print(variant.inventory_quantity)
-                        
                     }
+                    //Append the first iteration of Product to Inventory []
+                    //Appends the second iteration of Product to Inventory []
+                    //And so on
                     self.variantInventory.append(totalInv)
                     
                 }
@@ -110,29 +109,40 @@ class CollectionViewController: UICollectionViewController {
             }.resume()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            
+            //Still need to do imageDownload
+            //https://cdn.shopify.com/s/files/1/1000/7970/collections/Awesome_20Bronze_20Bag_grande_0fa20b0a-0663-44cf-81c4-2d53b83e1d65.png?v=1545072802
+            //original link has weird \ backslash
+            
             //Check for matched Product IDS to =
+            //Initial JSON call Returned Product IDS
+            print(self.productIds)
+            print(self.actualProductIds)
+
             for i in self.actualProductIds {
+                //For each ID in ActualProdID if it is in
+                //second JSON Call Prod IDS -> append to matched []
                 if self.productIds.contains(i){
                     self.matchedProductIds.append(i)
                 }
-                
-                
-                
+                //Reload Data
                 self.collectionView.reloadData()
-                
             }
             
             print(self.matchedProductIds)
             print(self.matchedProductIds.count)
             print(self.productTitles)
-            //let myCount = self.matchedProductIds.count
+            //Ensurance incase there are more ActualProductIds Not In Product IDs
             //same index as product id will be product title
             for i in self.matchedProductIds {
-                //store index count of how many matched product ids are in matchedProductIds
+            //for each id found in matchedProductIds
+            //store the index that it was found at in productIdIndexStore
             self.productIdIndexStore.append(self.matchedProductIds.firstIndex(of: i)!)
             }
             //Add the title found in the productTitles bassed on the index it is at and store at productTitleStore
+            //For each index (2 in this case) store the Product Title to the Corresponding Index
             for i in self.productIdIndexStore {
+                //Titles Will Be Stored In Order of index
                 self.productTitleStore.append(self.productTitles[i])
             }
         }
@@ -144,7 +154,6 @@ class CollectionViewController: UICollectionViewController {
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return actualProductIds.count
         return self.matchedProductIds.count
         
     }
