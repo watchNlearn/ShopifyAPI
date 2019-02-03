@@ -28,6 +28,7 @@ struct Variants: Decodable {
 }
 
 
+
 class CollectionViewController: UICollectionViewController {
     var cellArrayNames = [String]()
     var collectionTitle: String = ""
@@ -39,15 +40,11 @@ class CollectionViewController: UICollectionViewController {
     var productIdIndexStore = [Int]()
     var productTitleStore = [String]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("~~~~ Collection View ~~~~")
         print(collectionTitle)
         print(collectionID)
-        // Do JSON Call to get Cell Array List
-        //Get prod Ids from https://shopicruit.myshopify.com/admin/collects.json?collection_id=68424466488&page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6
-        //then search the ids in https://shopicruit.myshopify.com/admin/products.json?ids=2759137027,2759143811&page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6
         
         let jsonUrlString = "https://shopicruit.myshopify.com/admin/collects.json?collection_id=68424466488&page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6"
         guard let url = URL(string: jsonUrlString) else {
@@ -83,12 +80,23 @@ class CollectionViewController: UICollectionViewController {
             }
             do {
                 let shopifydata2 = try JSONDecoder().decode(ProductResponse.self, from: data2)
+                print("~~~~~~")
+                print(shopifydata2)
                 for product in shopifydata2.products {
-                    //print(product.id)
+                    print("LOLOLOLOL")
                     self.actualProductIds.append(product.id)
+                    print(product.id)
                     self.productTitles.append(product.title)
-                     
+                    print(product.title)
+                    for variant in product.variants {
+                        print("*****")
+                        print(variant.inventory_quantity)
+                    }
+                    
                 }
+            
+
+                
             }
             catch let jsonError {
                 print("JSON Error")
@@ -96,6 +104,7 @@ class CollectionViewController: UICollectionViewController {
             }.resume()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            //Check for matched Product IDS to =
             for i in self.actualProductIds {
                 if self.productIds.contains(i){
                     self.matchedProductIds.append(i)
@@ -106,14 +115,17 @@ class CollectionViewController: UICollectionViewController {
                 self.collectionView.reloadData()
                 
             }
+            
             print(self.matchedProductIds)
             print(self.matchedProductIds.count)
             print(self.productTitles)
             //let myCount = self.matchedProductIds.count
             //same index as product id will be product title
             for i in self.matchedProductIds {
-                self.productIdIndexStore.append(self.matchedProductIds.firstIndex(of: i)!)
+                //store index count of how many matched product ids are in matchedProductIds
+            self.productIdIndexStore.append(self.matchedProductIds.firstIndex(of: i)!)
             }
+            //Add the title found in the productTitles bassed on the index it is at and store at productTitleStore
             for i in self.productIdIndexStore {
                 self.productTitleStore.append(self.productTitles[i])
             }
