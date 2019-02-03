@@ -20,7 +20,13 @@ struct ProductResponse: Decodable {
 }
 struct Products: Decodable {
     var id: Int
+    var title: String
+    var variants: [Variants]
 }
+struct Variants: Decodable {
+    var inventory_quantity: Int
+}
+
 
 class CollectionViewController: UICollectionViewController {
     var cellArrayNames = [String]()
@@ -29,6 +35,9 @@ class CollectionViewController: UICollectionViewController {
     var productIds = [Int]()
     var actualProductIds = [Int]()
     var matchedProductIds = [Int]()
+    var productTitles = [String]()
+    var productIdIndexStore = [Int]()
+    var productTitleStore = [String]()
     
     
     override func viewDidLoad() {
@@ -53,6 +62,7 @@ class CollectionViewController: UICollectionViewController {
                 for collect in shopifydata.collects {
                     //print(collect.product_id)
                     self.productIds.append(collect.product_id)
+                
                 }
             }
             catch let jsonError {
@@ -76,6 +86,8 @@ class CollectionViewController: UICollectionViewController {
                 for product in shopifydata2.products {
                     //print(product.id)
                     self.actualProductIds.append(product.id)
+                    self.productTitles.append(product.title)
+                     
                 }
             }
             catch let jsonError {
@@ -84,35 +96,44 @@ class CollectionViewController: UICollectionViewController {
             }.resume()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            print(self.productIds)
-            print("~~~~~~~~~~~")
-            print(self.actualProductIds)
             for i in self.actualProductIds {
                 if self.productIds.contains(i){
-                print(i)
                     self.matchedProductIds.append(i)
                 }
+                
+                
+                
                 self.collectionView.reloadData()
                 
+            }
+            print(self.matchedProductIds)
+            print(self.matchedProductIds.count)
+            print(self.productTitles)
+            //let myCount = self.matchedProductIds.count
+            //same index as product id will be product title
+            for i in self.matchedProductIds {
+                self.productIdIndexStore.append(self.matchedProductIds.firstIndex(of: i)!)
+            }
+            for i in self.productIdIndexStore {
+                self.productTitleStore.append(self.productTitles[i])
             }
         }
         
         
         
-        cellArrayNames = ["Hammer", "Brick"]
         // Do any additional setup after loading the view.
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //return actualProductIds.count
-        return self.actualProductIds.count
+        return self.matchedProductIds.count
         
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as UICollectionViewCell
         var cellProdductNames = cell.viewWithTag(1) as! UILabel
-        cellProdductNames.text = cellArrayNames[indexPath.row]
+        cellProdductNames.text = productTitleStore[indexPath.row]
         var cellCollectionName = cell.viewWithTag(2) as! UILabel
         cellCollectionName.text = collectionTitle
         
