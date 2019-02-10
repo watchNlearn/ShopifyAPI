@@ -30,6 +30,7 @@ struct Variants: Decodable {
 
 
 class CollectionViewController: UICollectionViewController {
+
     var cellArrayNames = [String]()
     var collectionTitle: String = ""
     var collectionID: Int!
@@ -157,6 +158,7 @@ class CollectionViewController: UICollectionViewController {
         return self.matchedProductIds.count
         
     }
+    //Add info to each cell
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as UICollectionViewCell
         var cellProdductNames = cell.viewWithTag(1) as! UILabel
