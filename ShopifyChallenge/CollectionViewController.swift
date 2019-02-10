@@ -160,9 +160,12 @@ class CollectionViewController: UICollectionViewController {
     }
     //Add info to each cell
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //What Cell is INIT
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as UICollectionViewCell
+        //Cell product names
         var cellProdductNames = cell.viewWithTag(1) as! UILabel
         cellProdductNames.text = productTitleStore[indexPath.row]
+        //Cell collection names
         var cellCollectionName = cell.viewWithTag(2) as! UILabel
         cellCollectionName.text = collectionTitle
         var cellCollectionInventory = cell.viewWithTag(3) as! UILabel
