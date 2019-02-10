@@ -168,6 +168,7 @@ class CollectionViewController: UICollectionViewController {
         //Cell collection names
         var cellCollectionName = cell.viewWithTag(2) as! UILabel
         cellCollectionName.text = collectionTitle
+        //Cell collection inventory amount
         var cellCollectionInventory = cell.viewWithTag(3) as! UILabel
         cellCollectionInventory.text = "Total Inventory: " + String(variantInventory[indexPath.row])
         
