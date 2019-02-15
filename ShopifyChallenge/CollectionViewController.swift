@@ -59,7 +59,6 @@ class CollectionViewController: UICollectionViewController {
             do {
                 let shopifydata = try JSONDecoder().decode(CollectionResponse.self, from: data)
                 for collect in shopifydata.collects {
-                    //print(collect.product_id)
                     self.productIds.append(collect.product_id)
                 
                 }
