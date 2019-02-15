@@ -45,13 +45,6 @@ class ViewControllerMain: UITableViewController {
                     self.idArray.append(collection.id)
                     
                 }
-                /*
-                 let shopifycollection = shopifydata.custom_collections
-                 shopifycollection.forEach { value in
-                 print(self.title!)
-                 
-                 }
-                 */
                 //must be done on main thread
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -88,7 +81,6 @@ extension ViewControllerMain {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         indexCount = indexPath.row
-        //var collectionTitle = self.tableArray[indexCount]
         performSegue(withIdentifier: "tableToCollectionSegue", sender: self)
         
     }
